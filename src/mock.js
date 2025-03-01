@@ -6,6 +6,8 @@ var RE = require('./mock/regexp')
 var toJSONSchema = require('./mock/schema')
 var valid = require('./mock/valid')
 
+console.log('进来啦 到mockjs');
+
 var XHR
 if (typeof window !== 'undefined') XHR = require('./mock/xhr')
 
@@ -23,7 +25,7 @@ var Mock = {
     toJSONSchema: toJSONSchema,
     valid: valid,
     heredoc: Util.heredoc,
-    setup: function(settings) {
+    setup: function (settings) {
         return XHR.setup(settings)
     },
     _mocked: {}
@@ -44,8 +46,9 @@ if (XHR) XHR.Mock = Mock
 
     根据数据模板生成模拟数据。
 */
-Mock.mock = function(rurl, rtype, template) {
+Mock.mock = function (rurl, rtype, template) {
     // Mock.mock(template)
+    // 立即执行 - 返回结果
     if (arguments.length === 1) {
         return Handler.gen(rurl)
     }
@@ -61,6 +64,7 @@ Mock.mock = function(rurl, rtype, template) {
         rtype: rtype,
         template: template
     }
+    // 有多个参数， 返回 Mock，后续调用时，返回结果
     return Mock
 }
 

@@ -27,7 +27,7 @@ module.exports = {
             http://rensanning.iteye.com/blog/1933310
             http://code.tutsplus.com/articles/the-top-8-placeholders-for-web-designers--net-19485
     */
-    image: function(size, background, foreground, format, text) {
+    image: function (size, background, foreground, format, text) {
         // Random.image( size, background, foreground, text )
         if (arguments.length === 4) {
             text = format
@@ -51,7 +51,7 @@ module.exports = {
             (format ? '.' + format : '') +
             (text ? '&text=' + text : '')
     },
-    img: function() {
+    img: function () {
         return this.image.apply(this, arguments)
     },
 
@@ -217,7 +217,7 @@ module.exports = {
         'Zerply': '#9dcc7a',
         'Zootool': '#5e8b1d'
     },
-    _brandNames: function() {
+    _brandNames: function () {
         var brands = [];
         for (var b in this._brandColors) {
             brands.push(b)
@@ -234,7 +234,7 @@ module.exports = {
             return 'holder.js/' + size
         },
     */
-    dataImage: function(size, text) {
+    dataImage: function (size, text) {
         var canvas
         if (typeof document !== 'undefined') {
             canvas = document.createElement('canvas')
@@ -249,8 +249,8 @@ module.exports = {
 
                 PS：node-canvas 的安装过程实在是太繁琐了，所以不放入 package.json 的 dependencies。
              */
-            var Canvas = module.require('canvas')
-            canvas = new Canvas()
+            // var Canvas = module.require('canvas')
+            // canvas = new Canvas()
         }
 
         var ctx = canvas && canvas.getContext && canvas.getContext("2d")
